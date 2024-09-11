@@ -3,6 +3,8 @@ import 'package:learning_flutter/models/expense.dart';
 import 'package:learning_flutter/widgets/expenses_list/NewExpense.dart';
 import 'package:learning_flutter/widgets/expenses_list/expenses_list.dart';
 
+import 'chart/chart.dart';
+
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
 
@@ -92,6 +94,7 @@ class _ExpensesState extends State<Expenses> {
         children: [
           const Text('The chart'),
           const Text('The List of transactions'),
+          Chart(expenses: registeredExpenses),
           Expanded(
               child: ExpensesList(
             expenses: registeredExpenses,
