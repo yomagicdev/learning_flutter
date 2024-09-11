@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:learning_flutter/gradient_container.dart';
+
+import 'widgets/expenses.dart';
 
 void main() {
   runApp(
     const MaterialApp(
-      home: Scaffold(backgroundColor: Colors.blue, body: GradientContainer()),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+      ),
+      home: Expenses()
     ),
   );
 }
