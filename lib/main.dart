@@ -4,12 +4,6 @@ import 'widgets/expenses.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.amber,
-      ),
-      home: Expenses()
-    ),
+    const MaterialApp(home: Expenses()),
   );
 }
