@@ -82,6 +82,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Expense Tracker'),
@@ -90,7 +92,7 @@ class _ExpensesState extends State<Expenses> {
               onPressed: _openAddExpenseForm, icon: const Icon(Icons.add))
         ],
       ),
-      body: Column(
+      body: width < 600 ? Column(
         children: [
           const Text('The chart'),
           const Text('The List of transactions'),
@@ -100,7 +102,21 @@ class _ExpensesState extends State<Expenses> {
             expenses: registeredExpenses,
             viewExpenseDetails: _viewExpenseDetails,
                 onRemoveExpense: _removeExpense,
-          )),
+          )
+          ),
+        ],
+      ) : Row(
+        children: [
+          Expanded(
+            child: Chart(expenses: registeredExpenses),
+          ),
+          Expanded(
+            child: ExpensesList(
+              expenses: registeredExpenses,
+              viewExpenseDetails: _viewExpenseDetails,
+              onRemoveExpense: _removeExpense,
+            ),
+          ),
         ],
       ),
     );
